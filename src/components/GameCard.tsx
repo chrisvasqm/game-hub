@@ -18,10 +18,8 @@ interface Props {
 
 function GameCard({ game }: Props) {
   return (
-    <Card boxShadow={'2xl'} borderRadius={10} overflow='hidden'>
-      <AspectRatio ratio={4 / 2}>
-        <Image src={getCroppedImageUrl(game.background_image)} />
-      </AspectRatio>
+    <Card width='300px' boxShadow={'2xl'} borderRadius={10} overflow='hidden'>
+      <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
         <Heading fontSize='2xl'>{game.name}</Heading>
         <HStack justifyContent='space-between' paddingY={1}>
