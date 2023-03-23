@@ -10,6 +10,7 @@ import {
 import { Game } from '../hooks/useGames';
 import CreditScore from './CreditScore';
 import PlatformIconList from './PlatformIconList';
+import getCroppedImageUrl from '../services/image-url-cropper';
 
 interface Props {
   game: Game;
@@ -18,8 +19,8 @@ interface Props {
 function GameCard({ game }: Props) {
   return (
     <Card boxShadow={'2xl'} borderRadius={10} overflow='hidden'>
-      <AspectRatio maxW='800px' ratio={4 / 2}>
-        <Image src={game.background_image} />
+      <AspectRatio ratio={4 / 2}>
+        <Image src={getCroppedImageUrl(game.background_image)} />
       </AspectRatio>
       <CardBody>
         <Heading fontSize='2xl'>{game.name}</Heading>
