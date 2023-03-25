@@ -1,5 +1,4 @@
 import useData from './useData';
-import { Genre } from './useGenres';
 import { GameQuery } from '../App';
 
 export interface Platform {
@@ -18,7 +17,11 @@ export interface Game {
 
 const useGames = (gameQuery: GameQuery) =>
   useData<Game>('/games', [gameQuery], {
-    params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id }
+    params: {
+      genres: gameQuery.genre?.id,
+      platforms: gameQuery.platform?.id,
+      ordering: gameQuery.sortOrder
+    }
   });
 
 export default useGames;
