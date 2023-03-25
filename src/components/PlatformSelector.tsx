@@ -12,7 +12,7 @@ import usePlatforms from '../hooks/usePlatforms';
 import { Platform } from '../hooks/useGames';
 
 interface Props {
-  selectedPlatform: string;
+  selectedPlatform: Platform | null;
   onSelectPlatform: (platform: Platform) => void;
 }
 
@@ -24,7 +24,7 @@ function PlatformSelector({ onSelectPlatform, selectedPlatform }: Props) {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform}
+        {selectedPlatform ? `Platform: ${selectedPlatform.name}` : 'Platforms'}
       </MenuButton>
       <MenuList>
         {isLoading && (
