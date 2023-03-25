@@ -2,7 +2,7 @@ import { HStack, Switch, Text, useColorMode } from '@chakra-ui/react';
 import { BsFillMoonFill } from 'react-icons/bs';
 
 function ColorModeSwitch() {
-  const { toggleColorMode, colorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <HStack>
       <Switch
