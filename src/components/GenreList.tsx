@@ -7,9 +7,10 @@ function GenreList() {
 
   if (error) return null;
 
+  if (isLoading) return <Spinner />;
+
   return (
     <>
-      {isLoading && <Spinner />}
       <List>
         {data.map(genre => (
           <ListItem key={genre.id} paddingY='5px'>
