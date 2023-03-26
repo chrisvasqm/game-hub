@@ -4,6 +4,7 @@ import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
 import GameCardContainer from './GameCardContainer';
 import { GameQuery } from '../App';
+import GameGridEmptyState from './GameGridEmptyState';
 
 interface Props {
   gameQuery: GameQuery;
@@ -16,19 +17,22 @@ function GameGrid({ gameQuery }: Props) {
   if (error) return <Text color='red'>{error}</Text>;
 
   return (
-    <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6} padding='10px'>
-      {isLoading &&
-        skeletons.map(skeleton => (
-          <GameCardContainer key={skeleton}>
-            <GameCardSkeleton key={skeleton} />
+    <>
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6} padding='10px'>
+        {isLoading &&
+          skeletons.map(skeleton => (
+            <GameCardContainer key={skeleton}>
+              <GameCardSkeleton key={skeleton} />
+            </GameCardContainer>
+          ))}
+        {data.map(game => (
+          <GameCardContainer key={game.id}>
+            <GameCard key={game.id} game={game} />
           </GameCardContainer>
         ))}
-      {data.map(game => (
-        <GameCardContainer key={game.id}>
-          <GameCard key={game.id} game={game} />
-        </GameCardContainer>
-      ))}
-    </SimpleGrid>
+      </SimpleGrid>
+      {data.length === 0 ? <GameGridEmptyState /> : null}
+    </>
   );
 }
 
