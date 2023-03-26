@@ -6,7 +6,7 @@ function GameGridEmptyState() {
     <VStack>
       <Image src={gameOver} boxSize='300px' />
       <Heading as='h1'>Game Over</Heading>
-      <Text colorScheme={'gray'}>No games were found. Try again next time.</Text>
+      <Text colorScheme={'gray'}>No games were found. Try again later.</Text>
       <a
         style={{ fontSize: '10px', colorScheme: 'gray' }}
         href='https://www.flaticon.com/free-icons/game-over'
