@@ -32,7 +32,7 @@ function PlatformSelector({ onSelectPlatform, selectedPlatform }: Props) {
             <Spinner />
           </Center>
         )}
-        {data.map(platform => (
+        {data?.results.map(platform => (
           <MenuItem key={platform.id} onClick={() => onSelectPlatform(platform)}>
             {platform.name}
           </MenuItem>
