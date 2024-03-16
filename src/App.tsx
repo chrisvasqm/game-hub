@@ -5,7 +5,7 @@ import NavBar from './components/NavBar';
 import { useState } from 'react';
 import { Genre } from './hooks/useGenres';
 import PlatformSelector from './components/PlatformSelector';
-import { Platform } from './hooks/useGames';
+import { Platform } from './hooks/usePlatforms';
 import SortOrderSelector from './components/SortOrderSelector';
 import GameHeading from './components/GameHeading';
 

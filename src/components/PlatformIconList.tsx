@@ -1,4 +1,4 @@
-import { Platform } from '../hooks/useGames';
+import { Platform } from '../hooks/usePlatforms';
 import { Icon, HStack } from '@chakra-ui/react';
 import { SiNintendo } from 'react-icons/si';
 import { MdPhoneIphone } from 'react-icons/md';
