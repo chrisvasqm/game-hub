@@ -14,7 +14,7 @@ function GameGrid({ gameQuery }: Props) {
   const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-  if (error) return <Text color='red'>{error}</Text>;
+  if (error) return <Text color='red'>{error?.message}</Text>;
 
   return (
     <>
@@ -25,13 +25,13 @@ function GameGrid({ gameQuery }: Props) {
               <GameCardSkeleton key={skeleton} />
             </GameCardContainer>
           ))}
-        {data.map(game => (
+        {data?.results.map(game => (
           <GameCardContainer key={game.id}>
             <GameCard key={game.id} game={game} />
           </GameCardContainer>
         ))}
       </SimpleGrid>
-      {data.length === 0 ? <GameGridEmptyState /> : null}
+      {data?.results.length === 0 ? <GameGridEmptyState /> : null}
     </>
   );
 }
