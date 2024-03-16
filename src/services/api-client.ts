@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { CanceledError } from 'axios';
 
 export { CanceledError };
@@ -8,9 +8,22 @@ export interface FetchDataResponse<T> {
   results: T[];
 }
 
-const apiClient = axios.create({
+const instance = axios.create({
   baseURL: 'https://api.rawg.io/api',
   params: { key: '675af585f19843d596b1f429b55d94e7' }
 });
 
-export default apiClient;
+class APIClient<T> {
+  endpoint: string;
+
+  constructor(endpoint: string) {
+    this.endpoint = endpoint;
+  }
+
+  getAll = (config: AxiosRequestConfig) => {
+    return instance.get<FetchDataResponse<T>>(this.endpoint, config)
+      .then(response => response.data)
+  }
+}
+
+export default APIClient;
