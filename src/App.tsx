@@ -6,11 +6,10 @@ import GenreList from './components/GenreList';
 import NavBar from './components/NavBar';
 import PlatformSelector from './components/PlatformSelector';
 import SortOrderSelector from './components/SortOrderSelector';
-import { Platform } from './hooks/usePlatforms';
 
 export interface GameQuery {
   genreId?: number;
-  platform: Platform | null;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -45,8 +44,8 @@ function App() {
         <Box paddingLeft={2}>
           <Flex marginBottom={5}>
             <PlatformSelector
-              selectedPlatform={gameQuery.platform}
-              onSelectPlatform={platform => setGameQuery({ ...gameQuery, platform })}
+              selectedPlatformId={gameQuery.platformId || 1}
+              onSelectPlatform={platform => setGameQuery({ ...gameQuery, platformId: platform.id })}
             />
             <Box marginLeft={3}>
               <SortOrderSelector

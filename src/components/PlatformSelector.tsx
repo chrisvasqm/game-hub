@@ -11,19 +11,20 @@ import { BsChevronDown } from 'react-icons/bs';
 import usePlatforms, { Platform } from '../hooks/usePlatforms';
 
 interface Props {
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
   onSelectPlatform: (platform: Platform) => void;
 }
 
-function PlatformSelector({ onSelectPlatform, selectedPlatform }: Props) {
+function PlatformSelector({ selectedPlatformId, onSelectPlatform }: Props) {
   const { data, error, isLoading } = usePlatforms();
+  const selectedPlatform = data?.results[0].results.find(p => p.id === selectedPlatformId)
 
   if (error) return null;
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform ? `Platform: ${selectedPlatform.name}` : 'Platforms'}
+        {`Platform: ${selectedPlatform?.name}` || 'Platforms'}
       </MenuButton>
       <MenuList>
         {isLoading && (
