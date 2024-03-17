@@ -18,7 +18,7 @@ const useGames = (gameQuery: GameQuery) => useInfiniteQuery<FetchDataResponse<Ga
   queryKey: ['games', gameQuery],
   queryFn: ({ pageParam = 1 }) => client.getAll({
     params: {
-      genres: gameQuery.genre?.id,
+      genres: gameQuery.genreId,
       parent_platforms: gameQuery.platform?.id,
       ordering: gameQuery.sortOrder,
       search: gameQuery.searchText,
