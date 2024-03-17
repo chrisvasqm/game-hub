@@ -8,6 +8,7 @@ import {
   Spinner
 } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
+import usePlatform from '../hooks/usePlatform';
 import usePlatforms, { Platform } from '../hooks/usePlatforms';
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 
 function PlatformSelector({ selectedPlatformId, onSelectPlatform }: Props) {
   const { data, error, isLoading } = usePlatforms();
-  const selectedPlatform = data?.results[0].results.find(p => p.id === selectedPlatformId)
+  const selectedPlatform = usePlatform(selectedPlatformId);
 
   if (error) return null;
 

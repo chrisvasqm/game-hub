@@ -8,6 +8,7 @@ export interface Platform {
     id: number;
     name: string;
     slug: string;
+    results: Platform[]
 }
 
 const usePlatforms = () => useQuery({
