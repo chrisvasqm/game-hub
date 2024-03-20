@@ -9,14 +9,13 @@ export interface Platform {
     id: number;
     name: string;
     slug: string;
-    results: Platform[]
 }
 
 const usePlatforms = () => useQuery({
     queryKey: ['platforms'],
     queryFn: client.getAll,
     staleTime: ms('24h'),
-    initialData: { count: platforms.length, results: platforms }
+    initialData: platforms
 })
 
 export default usePlatforms;
