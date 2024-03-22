@@ -22,7 +22,14 @@ class APIClient<T> {
   }
 
   getAll = (config: AxiosRequestConfig) => {
-    return instance.get<FetchDataResponse<T>>(this.endpoint, config)
+    return instance
+      .get<FetchDataResponse<T>>(this.endpoint, config)
+      .then(response => response.data)
+  }
+
+  find = (id: number | string) => {
+    return instance
+      .get<T>(`${this.endpoint}/${id}`)
       .then(response => response.data)
   }
 }
