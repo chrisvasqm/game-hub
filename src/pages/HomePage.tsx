@@ -17,13 +17,15 @@ function HomePage() {
                 lg: '200px 1fr'
             }}
         >
-            <Show above='lg'>
+            <Show above='md'>
                 <GridItem area='aside' paddingX={5}>
                     <GenreList />
                 </GridItem>
             </Show>
+
             <GridItem area='main' padding='8px'>
                 <GameHeading />
+
                 <Box paddingLeft={2}>
                     <Flex marginBottom={5}>
                         <PlatformSelector />
