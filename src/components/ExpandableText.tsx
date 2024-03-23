@@ -17,7 +17,7 @@ function ExpandableText({ children }: Props) {
     const summary = expanded ? children : children.slice(0, limit) + '...';
 
     return <>
-        <Text>{summary}
+        <Text marginY={4}>{summary}
             <Button
                 marginLeft={2}
                 size={'sm'}
