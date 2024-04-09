@@ -8,9 +8,9 @@ import {
   Spinner
 } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
-import useGameQueryStore from '../hooks/useGameQueryStore';
-import usePlatform from '../hooks/usePlatform';
-import usePlatforms from '../hooks/usePlatforms';
+import useGameQueryStore from '../../hooks/game/useGameQueryStore';
+import usePlatform from '../../hooks/platform/usePlatform';
+import usePlatforms from '../../hooks/platform/usePlatforms';
 
 function PlatformSelector() {
   const { data, error, isLoading } = usePlatforms();

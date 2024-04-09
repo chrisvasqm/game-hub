@@ -1,5 +1,5 @@
 import { Image, SimpleGrid, Spinner } from "@chakra-ui/react";
-import useScreenshots from "../hooks/useScreenshots";
+import useScreenshots from "../../hooks/useScreenshots";
 
 interface Props {
     id: number;
