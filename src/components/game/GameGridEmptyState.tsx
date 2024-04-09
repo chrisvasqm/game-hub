@@ -1,5 +1,5 @@
 import { VStack, Text, Heading, Image } from '@chakra-ui/react';
-import gameOver from '../assets/game-over.png';
+import gameOver from '../../assets/game-over.png';
 
 function GameGridEmptyState() {
   return (
