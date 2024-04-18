@@ -3,16 +3,15 @@ import { BsFillMoonFill } from 'react-icons/bs';
 
 function ColorModeSwitch() {
   const { colorMode, toggleColorMode } = useColorMode();
-  
+
   return (
-    <HStack>
+    <HStack paddingRight={4}>
       <Switch
         colorScheme={'green'}
         isChecked={colorMode == 'dark'}
         onChange={toggleColorMode}
       />
       <BsFillMoonFill />
-      <Text whiteSpace='nowrap'>Dark mode</Text>
     </HStack>
   );
 }
